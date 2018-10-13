@@ -4,7 +4,9 @@ import os
 taskboard = Taskboard()
 
 def show_menu():
+    print("#########################")
     print("Taskboard Menu")
+    print("#########################")
     print("Type a number to continue")
     print("1. add Task")
     print("2. list Tasks")

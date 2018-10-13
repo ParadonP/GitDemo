@@ -11,8 +11,15 @@ class Taskboard:
         self.taskboard.append(task)
 
     def list_tasks(self):
-        for i in range(len(self.taskboard)):
-            print(i)
+        print("#########################")
+        print("Current Tasks:")
+        print("#########################")
+        if len(self.taskboard) == 0:
+            print("You don't have any tasks yet")
+        else:
+            for i in range(len(self.taskboard)):
+                print(i)
+        print("")
 
     def show_task(self):
         print("Type in Task Number")
