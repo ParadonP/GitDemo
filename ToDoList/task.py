@@ -15,7 +15,6 @@ class Task:
     # INPUT: inDesc
     # EXPORT: None
     # Purpose: Set the description of the task
-    def set_taskdesc(self,inDesc)
+    def set_taskdesc(self,inDesc):
         self.taskdesc = inDesc
 
-        
