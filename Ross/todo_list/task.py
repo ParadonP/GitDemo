@@ -17,3 +17,9 @@ class Task:
     # Purpose: Set the description of the task
     def set_taskdesc(self, inDesc):
         self.taskdesc = inDesc
+
+    def get_taskname(self):
+        return self.taskname
+
+    def get_taskdesc(self):
+        return self.taskdesc

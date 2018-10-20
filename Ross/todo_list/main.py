@@ -25,8 +25,8 @@ while True:
     elif selected == 2:
         taskboard.list_tasks()
     elif selected == 3:
-        pass
+        taskboard.show_task()
     elif selected == 4:
-        pass
+        taskboard.del_task()
     elif selected == 5:
         os._exit(1)
