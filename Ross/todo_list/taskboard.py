@@ -37,8 +37,12 @@ class Taskboard:
         selection = int(selection)
         print("Are you sure you want to remove Task: %s" % self.taskboard[selection].taskname)
         confirm = input("(y,n)> ")
-        if confirm == "y":
+        if confirm == "y" or confirm == "Y":
             self.taskboard.pop(selection)
             print("Task successfully deleted")
+        elif confirm == "n" or confirm == "N":
+            print("Task not deleted")
+        else:
+            print("Unknown input")
 
     

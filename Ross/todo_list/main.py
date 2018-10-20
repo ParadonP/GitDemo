@@ -29,4 +29,4 @@ while True:
     elif selected == 4:
         taskboard.del_task()
     elif selected == 5:
-        os._exit(1)
+        os._exit(0)
