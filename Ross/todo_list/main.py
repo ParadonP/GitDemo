@@ -12,7 +12,8 @@ def show_menu():
     print("2. list Tasks")
     print("3. Show Task")
     print("4. Delete Task")
-    print("5. Exit")
+    print("5. Edit Task")
+    print("6. Exit")
     selection = input("> ")
     selection = int(selection)
 
@@ -29,4 +30,6 @@ while True:
     elif selected == 4:
         taskboard.del_task()
     elif selected == 5:
+        taskboard.edit_task()
+    elif selected == 6:
         os._exit(0)
