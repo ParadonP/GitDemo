@@ -1,3 +1,5 @@
+import json
+
 class Task:
     # This is the class Constructor
     def __init__(self):
@@ -23,3 +25,7 @@ class Task:
 
     def get_taskdesc(self):
         return self.taskdesc
+
+    def export_json(self):
+        output = json.dumps(self.__dict__)
+        return output
