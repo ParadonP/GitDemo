@@ -69,16 +69,24 @@ class Taskboard:
         for t in self.taskboard:
             tmp.append(t.export_dict())
         # Write to file
-        with open('data.json', 'w') as fp:
-            json.dump(tmp, fp, indent=4)
+        try:
+            with open(input("File Name: "), 'w') as fp:
+                json.dump(tmp, fp, indent=4)
+            print("Save successful")
+        except:
+            print("Failed to save data!")
 
     def load_data(self):
-        with open('data.json') as json_file:
-            data = json.load(json_file)
+        try:
+            with open(input("File Name: ")) as json_file:
+                data = json.load(json_file)
 
-            # Create Task Object, load in dictionary into object.
-            for d in data:
-                task = Task()
-                task.set_taskname(d['Name'])
-                task.set_taskdesc(d['Description'])
-                self.taskboard.append(task)
+                # Create Task Object, load in dictionary into object.
+                for d in data:
+                    task = Task()
+                    task.set_taskname(d['Name'])
+                    task.set_taskdesc(d['Description'])
+                    self.taskboard.append(task)
+            print("Load Successful")
+        except:
+            print("failed to load file")

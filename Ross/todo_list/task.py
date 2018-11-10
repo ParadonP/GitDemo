@@ -28,5 +28,6 @@ class Task:
 
     def export_dict(self):
         output = {"Name": self.taskname,
-                  "Description": self.taskdesc}
+                  "Description": self.taskdesc
+                  }
         return output
