@@ -1,4 +1,6 @@
 from task import Task
+import json
+
 class Taskboard:
     def __init__(self):
         self.taskboard = []
@@ -62,5 +64,32 @@ class Taskboard:
             self.taskboard[selection].set_taskdesc(input("New Description: "))
     
 
+
+    def save_data (self):
+        tmp = []
+        # Loop through all the tasks
+        for t in self.taskboard:
+            tmp.append(t.export_dict())
+        #Write mto file
+   
+        with open('data.json','w') as fp:
+            json.dump(tmp, fp, indent=4) 
+
+        if open("data.json"):
+            print("Save seccesful")
+
+        else:
+            print("Didn't save correctly")
+
+    def load_data (self):
+        with open('data.json') as json_file:
+            data = json.load(json_file)
+
+        #
+        for d in data:
+            task = Task()
+            task.set_taskname(d['Name'])
+            task.set_taskdesc(d['Description'])
+            self.taskboard.append(task)
 
     
