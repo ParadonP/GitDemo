@@ -69,8 +69,19 @@ class Taskboard:
         for t in self.taskboard:
             tmp.append(t.export_dict())
         # Write to file
-        with open("data.json", 'w') as fp:
+        with open('data.json', 'w') as fp:
             json.dump(tmp, fp, indent=4)
 
     def load_data(self):
-        pass
+        with open('data.json') as json_file:
+            data = json.load(json_file)
+            #load in list of dictionaries
+            for d in data:
+                #convert dictionaries into task object
+                print(d)
+                for newtask in d:
+                    task = Task()
+                    task.set_taskname(newtask['Name'])
+                    task.set_taskdesc(newtask['Description'])
+
+                    self.taskboard.append(task)
