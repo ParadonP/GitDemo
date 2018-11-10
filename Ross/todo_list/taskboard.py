@@ -75,13 +75,10 @@ class Taskboard:
     def load_data(self):
         with open('data.json') as json_file:
             data = json.load(json_file)
-            #load in list of dictionaries
-            for d in data:
-                #convert dictionaries into task object
-                print(d)
-                for newtask in d:
-                    task = Task()
-                    task.set_taskname(newtask['Name'])
-                    task.set_taskdesc(newtask['Description'])
 
-                    self.taskboard.append(task)
+            # Create Task Object, load in dictionary into object.
+            for d in data:
+                task = Task()
+                task.set_taskname(d['Name'])
+                task.set_taskdesc(d['Description'])
+                self.taskboard.append(task)
