@@ -62,19 +62,15 @@ class Taskboard:
             #This will prompt for a new task name and new description
             self.taskboard[selection].set_taskname(input("New Task Name: "))
             self.taskboard[selection].set_taskdesc(input("New Description: "))
-    
+
     def save_data(self):
-        tmp = {}
-        tmplst = []
+        tmp = []
+        # Loop through all the tasks
         for t in self.taskboard:
-            tmplst.append(t.export_json())
-        tmp = {"Tasks": tmplst}
-        output = json.dumps(tmp, indent=2)
-
+            tmp.append(t.export_dict())
         # Write to file
-        f = open("data.json", 'w')
-        f.write(output)
-
+        with open("data.json", 'w') as fp:
+            json.dump(tmp, fp, indent=4)
 
     def load_data(self):
         pass

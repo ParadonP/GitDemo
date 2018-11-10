@@ -5,14 +5,14 @@ class Task:
     def __init__(self):
         self.taskname = ""
         self.taskdesc = ""
-    
+
     # Class Method: set_taskname
     # INPUT: inName
     # EXPORT: None
     # Purpose: Set the name of the task
     def set_taskname(self, inName):
         self.taskname = inName
-    
+
     # Class Method: set_taskdesc
     # INPUT: inDesc
     # EXPORT: None
@@ -26,6 +26,7 @@ class Task:
     def get_taskdesc(self):
         return self.taskdesc
 
-    def export_json(self):
-        output = json.dumps(self.__dict__)
+    def export_dict(self):
+        output = {"Name": self.taskname,
+                  "Description": self.taskdesc}
         return output
