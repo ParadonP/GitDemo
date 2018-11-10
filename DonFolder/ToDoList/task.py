@@ -23,3 +23,12 @@ class Task:
 
     def get_taskdesc(self):
         return self.taskdesc
+
+    def export_dict(self):
+        output = {"Name": self.taskname,
+                  "Description": self.taskdesc
+                  }
+
+        return output
+
+    
