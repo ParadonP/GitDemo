@@ -26,7 +26,9 @@ class Task:
     def get_taskdesc(self):
             return self.taskdesc
         
-    def export_json(self):
-        output = json.dumps(self.__dict__)
+    def export_dict(self):
+        output = {"Name": self.taskname,
+                  "Description": self.taskdesc
+        }
         return output
 

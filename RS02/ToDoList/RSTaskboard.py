@@ -64,17 +64,29 @@ class Taskboard:
             self.taskboard[selection].set_taskdesc(input("New Description: "))
 
     def save_data(self):
-        tmp = {}
-        tmplst = []
+        tmp = []
+        # Loop through all the tasks
         for t in self.taskboard:
-            tmplst.append(t.export_json())
-        tmp = {"tasks": tmplst}
-        output = json.dumps(tmp, indent=2)
+            tmp.append(t.export_dict())
+        # Write to file
+        try:
+            with open('data.json', 'w') as fp:
+                json.dump(tmp, fp, indent=4)
+            print("Save Successful")  
+        except:
+            print("Didn't save correctly")
 
-        #write to file
-        f = open("data.json", 'w')
-        f.write(output)
-                
-    
     def load_data(self):
-        pass
+        try:
+            with open('data.json') as json_file:
+                data = json.load(json_file)
+
+            # Create Task Object, load in dictionary into object.
+            for d in data:
+                task = Task()
+                task.set_taskname(d['Name'])
+                task.set_taskdesc(d['Description'])
+                self.taskboard.append(task)
+            print("Load Successful")  
+        except:
+            print("Didn't load correctly")

@@ -1,5 +1,6 @@
-{
-  "tasks": [
-    "{\"taskname\": \"task1\", \"taskdesc\": \"task1\"}"
-  ]
-}
+[
+    {
+        "Name": "task1",
+        "Description": "this is task1"
+    }
+]
