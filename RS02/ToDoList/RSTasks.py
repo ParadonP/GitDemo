@@ -1,3 +1,5 @@
+import json
+
 class Task:
     # This is the class constructor
     def __init__(self):
@@ -23,4 +25,10 @@ class Task:
 
     def get_taskdesc(self):
             return self.taskdesc
+        
+    def export_dict(self):
+        output = {"Name": self.taskname,
+                  "Description": self.taskdesc
+        }
+        return output
 
